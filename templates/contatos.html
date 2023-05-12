@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+<title>Contatos</title>
+<body id="fundo2">
+
+    <div>
+    <h2>Entre em contato</h2>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus assumenda eos in quam ab quasi.</p>
+    <hr>
+
+        <div>
+          <form action="/action_page.php">
+            <label for="e-mail">
+                <p>Seu e-mail:</label><br><input type="text"></p>
+          
+        
+            <label for="assunto">
+                <p>Assunto:</label><br><input type="text"></p> 
+         
+            <label for="descrição">
+                <p>Descrição:</label><br><textarea name="Descrição"></textarea></p>
+
+            <input type="submit" value="Enviar">
+          </form>
+
+        </div>
+
+</body>
+
+{% endblock %}
