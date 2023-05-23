@@ -1,50 +1,44 @@
-from flask import Flask, render_template, request, url_for, jsonify
+from flask import Flask, render_template, url_for, request
 from flask_mysqldb import MySQL
 
+app = Flask("__name__")
 
-
-def create_app():
-    from app import routes
-    routes.init_app(app)
-
-    return app
-
-app= Flask(__name__)
-
-app.config['MYSQL_Host'] = 'localhost'
+# conexão com o banco de dados
+app.config['MYSQL_Host'] = 'localhost' # 127.0.0.1
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'fatec'
-app.config['MYSQL_DB'] = 'contatos'
+app.config['MYSQL_DB'] = 'desafio3'
 
-mysql = MySQL (app)
+mysql = MySQL(app)
 
 @app.route("/")
-@app.route("/index")
 def home():
-    return render_template("home.html")
+   #return "<h1>Ola Flask, estou rodando no servidor!</>"
+   return render_template("home.html")
 
 @app.route("/quemsomos")
-def quem_somos():
-    return render_template("quemsomos.html")
-
+def quemsomos():
+   return render_template("quemsomos.html")
 
 @app.route('/contatos', methods=['GET', 'POST'])
 def contatos():
-    if request.method== 'POST':
-        email= request.form ['email']
-        assunto= request.form ['assunto']
-        descricao= request.form ['descricao']
+    if request.method == "POST":
+        email = request.form['email']
+        assunto = request.form['assunto']
+        descricao = request.form['descricao']
 
-        cur= mysql.connection.cursor()
+        cur = mysql.connection.cursor()
         cur.execute("INSERT INTO contatos(email, assunto, descricao) VALUES (%s, %s, %s)", (email, assunto, descricao))
 
-        mysql.connection.commit() 
+        mysql.connection.commit()
 
         cur.close()
 
         return 'sucesso'
     return render_template('contatos.html')
 
+
+# rota usuários para listar todos os usuário no banco de dados.
 @app.route('/users')
 def users():
     cur = mysql.connection.cursor()

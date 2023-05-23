@@ -1,32 +1,36 @@
-{% extends "base.html" %}
+    {% extends "base.html" %}
 
-{% block conteudo %}
-
-<title>Contatos</title>
-<body id="fundo2">
+    {% block conteudo %}
 
     <div>
-    <h2>Entre em contato</h2>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus assumenda eos in quam ab quasi.</p>
-    <hr>
+        <!-- Background -->
+        <style>
+            body{background-image: url(../static/imagens/fundo2.png);}
+        </style>
 
-        <div>
-          <form action="/action_page.php">
-            <label for="e-mail">
-                <p>Seu e-mail:</label><br><input type="text"></p>
+        <!-- Corpo da página contato -->
+        <h2>Entre em contato</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit praesentium sint iure. Aliquam itaque commodi laborum reprehenderit, delectus ab rerum nobis.</p>
+        <hr>
+
+        <!-- Parte do email, assunto e descrição -->
+        <form method="post" action="/contatos">
+
+            Seu e-mail: <br>
+                <input type="email" name="email" required><br>
+            
+            
+            Assunto: <br>
+            <input type="text" name="assunto" required><br>
+
           
-        
-            <label for="assunto">
-                <p>Assunto:</label><br><input type="text"></p> 
-         
-            <label for="descrição">
-                <p>Descrição:</label><br><textarea name="Descrição"></textarea></p>
+            Descrição: <br>
+            <textarea type="text" row="3" style="width: 26;" name="descricao" id="desc"></textarea>
+            
+            <br>
+            <input type="submit">
+            
+        </form>
+    </div>
 
-            <input type="submit" value="Enviar">
-          </form>
-
-        </div>
-
-</body>
-
-{% endblock %}
+    {% endblock %}

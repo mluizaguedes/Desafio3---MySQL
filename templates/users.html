@@ -1,36 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Users</title>
-</head>
-<body>
-    
-<table id="users" class="display">
-    <thread>
-        <tr>
-            <tr>E-mail</tr>
-            <tr>Assunto</tr>
-            <tr>Descrição</tr>
-        </tr>
-    </thread>
+    {% extends "base.html" %}
 
-{% for user in userDetails %}
+    {% block conteudo %}
 
-<tbody>
-    <tr>
-        <td>{{user[0]}}</td>
-        <td>{{user[1]}}</td>
-        <td>{{user[2]}}</td>
-    </tr>
-</tbody>
+    <!-- Background-->
+    <style>
+        body{background-image: url(../static/imagens/fundo2.png);}
+    </style>
 
-{% endfor %}
+    <br>
+    <table id="users" class="display">
+        <thead>
+            <tr>
+                <th>E-mail</th>
+                <th>Assunto</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
 
-</tbody>
-</table>
+        {% for user in userDetails %}
 
-</body>
-</html>
+        <tbody>
+            <tr>
+                <td>{{user[0]}}</td>
+                <td>{{user[1]}}</td>
+                <td>{{user[2]}}</td>
+            </tr>
+        </tbody>
+
+        {% endfor %}
+        
+    </table>
+
+    {% endblock %}
