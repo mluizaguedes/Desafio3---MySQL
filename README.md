@@ -1,5 +1,5 @@
 # DevWeb
-Primeiro repositório criado para a aula de Programação em Microinformática;
+Repositório criado para a aula de Programação em Microinformática;
 
 Site criado para uma empresa fictícia.
 
